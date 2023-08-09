@@ -3,7 +3,7 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { BooksModule } from './components/books/books.module';
+import { UsersModule } from './components/users/users.module';
 
 @Module({
   imports: [
@@ -24,7 +24,7 @@ import { BooksModule } from './components/books/books.module';
       migrations: ['dist/migration/**/*.{js,ts}'],
       subscribers: ['src/subscriber/**/*.{js,ts}'],
     }),
-    BooksModule,
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],

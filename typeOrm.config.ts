@@ -3,8 +3,11 @@ import { ConfigService } from '@nestjs/config';
 import { config } from 'dotenv';
 config();
 
-import { PostEntity } from './entities/post.entity'; //entity file
-import {Migration1691522060921} from './migrations/1691522060921-migration' //import class from file migration, after migration:generate
+// define entity file before run "npm run typeorm:generate-migration"
+// import { PostEntity } from './entities/post.entity'; 
+import { UserEntity } from './entities/users.entity'; 
+//import class from file migration, before run "npm run typeorm:run-migrations"
+import {Migration1691549323251} from './migrations/1691549323251-migration' 
 
 const configService = new ConfigService();
 
@@ -15,6 +18,6 @@ export default new DataSource({
   username: configService.get('DATABASE_USER'),
   password: configService.get('DATABASE_PASSWORD'),
   database: configService.get('DATABASE_NAME'),
-  entities: [PostEntity],
-  migrations: [Migration1691522060921]
+  entities: [UserEntity],
+  migrations: [Migration1691549323251]
 });
